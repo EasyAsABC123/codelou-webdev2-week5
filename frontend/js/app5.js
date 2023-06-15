@@ -1,6 +1,7 @@
 import createPokemonCard from './createPokemonCard.js';
 
 const app = document.getElementById('app');
+const header = document.getElementById('header')
 
 if (!app) {
   throw new Error('No app element found!');
@@ -20,6 +21,18 @@ class PokemonClass {
     return this.id < 300;
   }
 }
+
+fetch('http://localhost:3000/api/users')
+  .then(response => {
+    response.json()
+      .then(json => {
+        console.log(json)
+        header.innerHTML = json.hello
+      })
+  })
+  .catch(error => {
+    console.error(error)
+  })
 
 fetch('https://pokeapi.co/api/v2/pokemon')
   .then(response => {

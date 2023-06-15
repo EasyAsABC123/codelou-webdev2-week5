@@ -1,14 +1,19 @@
 const express = require('express')
 const app = express()
 
-app.use(express.json())
+app.use(express.json());
 
 let apiRouter = express.Router()
 
-apiRouter.get('/users'), (req, res, next) => {
+apiRouter.get('/users', (req, res, next) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify({ hello: "world" }));
+})
+
+apiRouter.get('/users/:groups/:id', (req, res, next) => {
   res.setHeader('Content-Type', 'application/json')
-  res.end(JSON.stringify({ hello: "world"}))
-}
+  res.end(JSON.stringify({ hello: req.params.groups + " world " + req.params.id}))
+})
 
 app.use('/api', apiRouter)
 
