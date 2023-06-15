@@ -150,5 +150,5 @@ export const pokemonImages = {
   "Dragonair": "http://img.pokemondb.net/artwork/dragonair.jpg",
   "Dragonite": "http://img.pokemondb.net/artwork/dragonite.jpg",
   "Mewtwo": "http://img.pokemondb.net/artwork/mewtwo.jpg",
-  "Mew": "http://img.pokemondb.net/artwork/mew.jpg",
+  "Mew": "http://img.pokemondb.net/artwork/mew.jpg"
 };
