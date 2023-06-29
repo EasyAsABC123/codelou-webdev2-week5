@@ -14,6 +14,15 @@
     </header>
     <main>
       <div id="header"></div>
+      <div id="weather">
+        <h2>Weather</h2>
+        <form onsubmit="return onWeatherSubmit(event)">
+          <label>Location (zip code):</label>
+          <input type="text" id="zipcode" />
+          <button type="submit" id="submit">Submit</button>
+        </form>
+        <div id="weather_value"></div>
+      </div>
       <div id="app"></div>
     </main>
     <footer></footer>

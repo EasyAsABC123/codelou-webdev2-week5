@@ -1,10 +1,31 @@
-import createPokemonCard from './createPokemonCard.js';
+import createPokemonCard from './createPokemonCard.js'
 
-const app = document.getElementById('app');
+const app = document.getElementById('app')
+const weatherButton = document.getElementById('submit')
 const header = document.getElementById('header')
+weatherButton.addEventListener('click', onWeatherSubmit, false);
 
 if (!app) {
   throw new Error('No app element found!');
+}
+
+function onWeatherSubmit(e) {
+  e.preventDefault()
+  const weather_value = document.getElementById('weather_value')
+  const zipcode = document.getElementById('zipcode')
+
+  fetch(`http://localhost:3000/api/forecast/${zipcode.value}`)
+  .then(response => {
+    response.json()
+      .then(json => {
+        weather_value.innerHTML = `${json.value} ${json.unit}`
+      })
+  })
+  .catch(error => {
+    console.error(error)
+  })
+
+  return false;
 }
 
 // Goal is to call the pokeAPI to fetch pokemon rather than hardcode
